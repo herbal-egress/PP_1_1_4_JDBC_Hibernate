@@ -2,6 +2,7 @@ package jm.task.core.jdbc.dao;
 // здесь расписываем основной функционал (CRUD методы взаимодействия с SQL)
 
 import jm.task.core.jdbc.model.User;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,9 +81,8 @@ public class UserDaoJDBCImpl implements UserDao {
         // try с ресурсом, сам закроет connection!!!
         try (Statement statement = connection.createStatement()) // объект, который содержит в себе SQL-запрос к БД, и содержит соединение к БД
         {
-            String SQL = "SELECT * FROM kata_pp_db.users;"; // SQL-запрос к моей БД. Для наглядности отдельной строкой
-            ResultSet resultSet = statement.executeQuery(SQL);// на statement выполняем SQL-запрос, вернутся строчки из БД,
-            // присваиваем результат объекту ResultSet (коллекция)
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM kata_pp_db.users;");// на statement выполняем
+            // SQL-запрос, вернутся строчки из БД, присваиваем результат объекту ResultSet (коллекция)
             while (resultSet.next()) { // проходимся по каждой строке возвращенного запроса и каждую строку присваиваем в java-объект:
                 User user = new User(); // создаём каждый раз нового юзера, пока есть элементы в коллекции resultSet.
                 // для каждой колонки получаем значение из БД и присваиваем его новому юзеру:
