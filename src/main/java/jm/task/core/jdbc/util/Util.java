@@ -5,12 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Util {
-    // реализуйте настройку соеденения с БД
-    private static int PEOPLE_COUNT; // поле для автоматического присвоения id
-    // создаём поля для работы с БД:
+     // id автоматически назначается БД!
+    // поля для работы с БД:
     private static final String DB_URL = "jdbc:mysql://localhost:3306/kata_pp_db"; // это URL моей БД на postgresql
     private static final String DB_USERNAME = "divan";
-    private static final String DB_PASSWORD = "GfhjkmHfpys[Htcehcjd@174";
+    private static final String DB_PASSWORD = "divan";
 
     public static Connection connection; // соединение к БД будет хранится в этом
     // статическом поле. Сразу задаём значение этому полю ниже без объявления метода (так удобнее)
@@ -28,4 +27,3 @@ public class Util {
         }
     }
 }
-// сделано

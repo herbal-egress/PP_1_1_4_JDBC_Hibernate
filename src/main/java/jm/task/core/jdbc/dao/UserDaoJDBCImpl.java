@@ -13,8 +13,7 @@ import java.util.List;
 import static jm.task.core.jdbc.util.Util.connection;
 
 public class UserDaoJDBCImpl implements UserDao {
-    public UserDaoJDBCImpl() {
-    } // пустой конструктор
+    public UserDaoJDBCImpl() { } // пустой конструктор
 
     @Override
     public void createUsersTable() {

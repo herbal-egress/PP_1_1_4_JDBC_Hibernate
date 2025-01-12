@@ -6,14 +6,9 @@ import java.util.List;
 // Этот интерфейс содержит все аспекты работы с БД (CRUD)
 public interface UserDao {
     void createUsersTable();
-
     void dropUsersTable();
-
     void saveUser(String name, String lastName, byte age);
-
     void removeUserById(long id);
-
     List<User> getAllUsers();
-
     void cleanUsersTable();
 }
