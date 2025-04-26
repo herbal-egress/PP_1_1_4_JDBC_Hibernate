@@ -2,20 +2,17 @@ package jm.task.core.jdbc.dao;
 // здесь расписываем основной функционал (CRUD методы взаимодействия с SQL)
 
 import jm.task.core.jdbc.model.User;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import static jm.task.core.jdbc.util.Util.connection;
+import static jm.task.core.jdbc.util.Util.connection; // импорт константы с настроенным подключением
 
 public class UserDaoJDBCImpl implements UserDao {
     public UserDaoJDBCImpl() { } // пустой конструктор
 
-    @Override
     public void createUsersTable() {
         // try с ресурсом, сам закроет connection!!!
         try (PreparedStatement preparedStatement = connection.prepareStatement
@@ -34,7 +31,6 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
-    @Override
     public void dropUsersTable() {
         // try с ресурсом, сам закроет connection!!!
         try (PreparedStatement preparedStatement = connection.prepareStatement
@@ -47,7 +43,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
-    @Override
+
     public void saveUser(String name, String lastName, byte age) {
 // try с ресурсом, сам закроет connection!!!
         try (PreparedStatement preparedStatement = connection.prepareStatement
@@ -62,7 +58,6 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
-    @Override
     public void removeUserById(long id) {
         // try с ресурсом, сам закроет connection!!! создаём SQL запрос и передаём в него id для удаления
         try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM users WHERE id=?;")) {
@@ -74,7 +69,6 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
-    @Override
     public List<User> getAllUsers() { // считываем из БД всех людей
         List<User> allUsers = new ArrayList<>(); // в этот лист будем записывать людей, которых достанем из БД
         // try с ресурсом, сам закроет connection!!!
@@ -98,7 +92,6 @@ public class UserDaoJDBCImpl implements UserDao {
         return allUsers; // возвращаем список всех юзеров, полученных из БД
     }
 
-    @Override
     public void cleanUsersTable() {
         // try с ресурсом, сам закроет connection!!!
         try (PreparedStatement preparedStatement = connection.prepareStatement
