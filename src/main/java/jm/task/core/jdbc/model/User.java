@@ -3,11 +3,11 @@ package jm.task.core.jdbc.model;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "users") // Entity и Table нужно для Hibernate
+@Table(name = "users")
 public class User {
-    @Id // это нужно Hibernate. Пометка, что это поле - это первичный ключ в таблице User
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id") // это нужно для Hibernate. Название колонки в БД в таблице User
+    @Column(name = "id")
     private Long id;
     @Column(name = "name")
     private String name;
@@ -16,7 +16,8 @@ public class User {
     @Column(name = "age")
     private Byte age;
 
-    public User() {}
+    public User() {
+    }
 
     public User(String name, String lastName, Byte age) {
         this.name = name;
